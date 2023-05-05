@@ -12,23 +12,22 @@ function connect_db(){
 	$option = [
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-		PDO::ATTR_EMURATE_PREPARES => false,
-	
+		PDO::ATTR_EMULATE_PREPARES => false,
 	];
 
 	try{
 		$pdo = new PDO( $dsn, $user, $pass, $option);
 
 	}catch( PDOException $e){
-		echor $e -> getMessage();
+		echo $e -> getMessage();
 	}
 	return $pdo;
 
 }
 
 $pdo 	= connect_db();
-$sql 	= "SELECT * FROM user";
-$stmt 	= $pdo -> prepare( $sql);
+$sql = 'SELECT * FROM user';
+$stmt = $pdo->prepare($sql);
 $stmt -> execute();
 
 $result = $stmt -> fetchall();
@@ -46,9 +45,9 @@ $result = $stmt -> fetchall();
 	<?php
 		foreach( $result as $r ){
 			echo 'username: '. $r["username"];
-			echo '<br>'
+			echo '<br>';
 			echo 'email: '. $r["email"];
-			echo '<hr>'
+			echo '<hr>';
 			
 		}
 	?>
