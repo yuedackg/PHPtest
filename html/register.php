@@ -1,7 +1,7 @@
 <?php
 
-require_once('../classes/UserLogic.php');
-
+require_once('./UserLogic.php');
+  
 // エラーメッセージ
 $err = [];
 

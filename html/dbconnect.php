@@ -15,12 +15,15 @@ function connect(){
 	];
 
 
-}
+
     $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
     try{
         $pdo = new PDO($dsn, $user, $pass, $options);
-    }catch(PDOException $e){
-        echo 'error'. $e->getMessage();
+		return $pdo;
+	}catch(PDOException $e){
+        echo 'error: '. $e->getMessage();
     }
 }
+
+?>
