@@ -10,24 +10,35 @@ services:
     ports:
       - 8080:80
     container_name: php7.2
-  mysql:
-    image: mysql:5.7
+  mysql :
+    image: mysql:5.7.23
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./initdb.d:/docker-entrypoint-initdb.d
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=test
-      - MYSQL_USER=test
-      - MYSQL_PASSWORD=test
+      COMPOSE_PROJECT_NAME: sampe 
+      MYSQL_ROOT_PASSWORD: passw0rd
+      MYSQL_USER: "example_user"
+      MYSQL_PASSWORD: "example_pass"
+      MYSQL_DATABASE: "example_schema"
+      # - COMPOSE_PROJECT_NAME
+      # - MYSQL_ROOT_PASSWORD=root
+      # - MYSQL_USER="example_user"
+      # - MYSQL_PASSWORD="example_pass"
+      # - MYSQL_DATABASE="sample_ueda_db"
+      # - MYSQL_DATABASE=test2
     # container_name: mysqldatabase
+    ports:
+      - "3306:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
-      - PMA_USER=test
-      - PMA_PASSWORD=test
+      - PMA_USER=example_user
+      - PMA_PASSWORD=example_pass
     links:
       - mysql
     ports:
