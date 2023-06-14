@@ -1,6 +1,6 @@
 <?php
 
-require('./env.php');
+require_once('./env.php');
 
 function connect()
 {
@@ -21,7 +21,7 @@ echo "<br>";
 		]);
 		// var_dump($pdo->errorInfo());
 
-		echo "成功です";
+		return $pdo;
 	} catch (PDOException $e) {
 		echo "接続失敗です" . $e->getMessage();
 		// var_dump($pdo->errorInfo());
@@ -31,6 +31,3 @@ echo "<br>";
 
 
 }
-
-echo "hello";
-echo connect();
