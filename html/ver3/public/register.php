@@ -23,7 +23,7 @@
 		$hasCreated = UserLogic::createUser($_POST);
 
 		if ( !$hasCreated){
-			$err[] = '登録に失敗しました'
+			$err[] = '登録に失敗しました';
 		}
 	}
 	

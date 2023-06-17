@@ -1,6 +1,6 @@
 <?php
 
-require_once('./env.php');
+require_once('env.php');
 
 function connect()
 {
@@ -11,7 +11,7 @@ function connect()
 
 	$dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 	echo $dsn ;
-echo "<br>";
+	echo "<br>";
 
 	$pdo =null;
 	try {
