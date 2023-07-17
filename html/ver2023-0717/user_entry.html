@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+.cssMainFrame{
+    border-radius: 10px;
+    border: solid 1px gray;
+    width:300px;
+    margin: 0 auto;
+}
+.cssMainFrame > div {
+    background-color: red;
+    margin: 0 auto; 
+    text-align: center;
+}
+</style>
+<body>
+    <form action="user_entry.php" method="POST">
+        <div class="cssMainFrame">
+            <div>ログイン</div>
+
+            <div>
+                <div>employee id</div>
+                <input type="text" name="employeeID" id="idEmployeeID">
+            </div>
+            <div>
+                <div>メールアドレス</div>
+                <input type="text" id="txtEmail">
+
+            </div>
+        
+            <div>
+                <div>name</div>
+                <input type="text" name="entryName" id="txtEntryName">
+            </div>
+            <div>
+                <div>manager's ID</div>
+                <input type="text" name="ManagerEmployeeID" id="idManagerEmployeeID">
+            </div>
+            <div>
+                <div>password</div>
+                <input type="password" id="txtPassword">
+            </div>
+
+            <div>
+                <div> passsword re-type</div>
+                <input type="password" name="txtRetypePassword" id="">
+            </div>
+            <input type="submit" value="entry">
+        </div>
+    </form>
+</body>
+
+</html>
